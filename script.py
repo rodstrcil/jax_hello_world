@@ -1,12 +1,11 @@
 import tensorflow as tf
-# Ensure TF does not see GPU and grab all GPU memory.
-tf.config.set_visible_devices([], device_type='GPU')
 import tensorflow_datasets as tfds
 import jax.numpy as jnp
 from jax import grad, jit, vmap
 from jax import random
 from jax.scipy.special import logsumexp
 import time
+tf.config.set_visible_devices([], device_type='GPU')
 data_dir = '/tmp/tfds'
 
 
@@ -14,7 +13,7 @@ data_dir = '/tmp/tfds'
 # for a dense neural network layer
 def random_layer_params(m, n, key, scale=1e-2):
   w_key, b_key = random.split(key)
-  return scale * random.normal(w_key, (n, m)), scale * random.normal(b_key, (n,))
+  return scale * random.normal(w_key, (n, m)), scale * random.normal(b_key, (n,)) #pylint: disable=line-too-long
 
 # Initialize all layers for a fully-connected neural network with sizes "sizes"
 def init_network_params(sizes, key):
