@@ -7,7 +7,7 @@ from jax.scipy.special import logsumexp
 import time
 tf.config.set_visible_devices([], device_type='GPU')
 data_dir = '/tmp/tfds'
-
+a=
 
 # A helper function to randomly initialize weights and biases
 # for a dense neural network layer
